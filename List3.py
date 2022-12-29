@@ -82,17 +82,6 @@ def to_csv(title, L, k_dict):
         writer.writerows(zip(k_dict.keys(), [k / L for k in k_dict.values()]))
 
 
-
-
-
-# print(g_first.nodes())
-# rand_remove(g_first,2)
-# print(g_first.nodes())
-
-# g_new = nx.barabasi_albert_graph()
-# g_new = nx.watts_strogatz_graph(n=size, k=k, p=0.01)
-# g_new = nx.barabasi_albert_graph(size, k*2)
-
 er = GraphType(k_val=[0.5, 1, 2, 4], name='ER', func=nx.fast_gnp_random_graph)
 barabasi = GraphType(k_val=[2, 4], name='BAR', func=nx.barabasi_albert_graph)
 ws = GraphType(k_val=[2, 4], name='WS', func=nx.watts_strogatz_graph)
@@ -100,14 +89,15 @@ ks = [er, barabasi, ws]
 # ks = [er]
 p_numb = 100
 f_list = np.linspace(0, 1, p_numb + 1)
-
-
-t_bef = time.time()
-L_list = [1,10,20]
-size = int(1e3)
-third_part_closeness(size, ks, L_list)
-t_aft = time.time()
-print(t_aft - t_bef)
-L_list = np.arange(1,12,5)
 size = int(1e4)
-second_part(size, ks, [1,5,10])
+second_part(size=size, L_list=[50], ks = [GraphType(k_val=[0.5], name='ER', func=nx.fast_gnp_random_graph)])
+
+# t_bef = time.time()
+# L_list = [1,10,20]
+# size = int(1e3)
+# third_part_closeness(size, ks, L_list)
+# t_aft = time.time()
+# print(t_aft - t_bef)
+# L_list = np.arange(1,12,5)
+# size = int(1e4)
+# second_part(size, ks, [1,5,10])

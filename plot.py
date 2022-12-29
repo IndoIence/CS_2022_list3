@@ -211,3 +211,23 @@ plt.xlabel("number of removed nodes")
 plt.ylabel(r"$\frac{P_{f}}{P_{0}}$", rotation = 0, fontsize = 15)
 plt.savefig('plots/' + output_name)
 plt.show()
+
+plot_save_one('HD_ER_0.5_1e+04_11.csv')
+# ---------------- compare closeness barabassi watts--------------------------
+plot_mult("CL_ER_4_1e+03_10.csv","CL_WS_4_1e+03_10.csv","CL_BAR_4_1e+03_10.csv")
+output_name = 'compare graph types closeness 2'
+plt.legend(['Erdös-Rényi', 'Watts-Strogatz','Barabasi-Albert'])
+plt.title("")
+plt.xlabel("number of removed nodes")
+plt.ylabel(r"$\frac{P_{f}}{P_{0}}$", rotation = 0, fontsize = 15)
+plt.savefig('plots/' + output_name)
+plt.show()
+
+plot_mult("CL_ER_4_1e+03_10.csv","CL_WS_4_1e+03_10.csv","CL_BAR_4_1e+03_10.csv")
+output_name = 'compare graph types closeness 2'
+plt.legend(['Erdös-Rényi', 'Watts-Strogatz','Barabasi-Albert'])
+plt.title("")
+plt.xlabel("number of removed nodes")
+plt.ylabel(r"$\frac{P_{f}}{P_{0}}$", rotation = 0, fontsize = 15)
+plt.savefig('plots/' + output_name)
+plt.show()
