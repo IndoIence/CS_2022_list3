@@ -1,16 +1,41 @@
 import matplotlib.pyplot as plt
 import csv
-name = "output/GC_BAR_0.5_1e+04_9.csv"
-smooth = [8]
-ks = [0.5,2,4]
-type = ['ER', 'BAR', 'WS']
-for v in smooth:
-    for k in ks:
-        name = f"output/GC_ER_{k}_1e+04_{v}.csv"
-        with open(name) as f:
-            val = list(csv.reader(f))
-            f_val = [float(k[0]) for k in val]
-            p_val = [float(k[1]) for k in val]
-            plt.plot(f_val, p_val)
+name = "output/HD_ER_0.5_1e+04_1.csv"
+name2 = "output/HD_ER_0.5_1e+04_5.csv"
+smooth = [4]
+ks = [0.5,1,2]
+typ = ['ER', 'BAR', 'WS']
+names = [f"output/HD_ER_{t}_1e+04_5.csv" for t in ks]
 
+for name in names:
+    with open(name) as f:
+        val = list(csv.reader(f))
+        f_val = [float(k[0]) for k in val]
+        p_val = [float(k[1]) for k in val]
+        plt.plot(f_val, p_val)
+plt.legend(['k=0.5','k=1', 'k=2'])
+plt.show()
+
+ks = [2,4]
+names = [f"output/HD_BAR_{t}_1e+04_1.csv" for t in ks]
+names.append("output/HD_BAR_2_1e+04_5.csv")
+for name in names:
+    with open(name) as f:
+        val = list(csv.reader(f))
+        f_val = [float(k[0]) for k in val]
+        p_val = [float(k[1]) for k in val]
+        plt.plot(f_val, p_val)
+plt.legend(['k=2','k=4'])
+plt.show()
+
+plt.figure()
+ks = [2,4]
+names = [f"output/HD_WS_{t}_1e+04_1.csv" for t in ks]
+for name in names:
+    with open(name) as f:
+        val = list(csv.reader(f))
+        f_val = [float(k[0]) for k in val]
+        p_val = [float(k[1]) for k in val]
+        plt.plot(f_val, p_val)
+plt.legend(['k=2','k=4'])
 plt.show()
